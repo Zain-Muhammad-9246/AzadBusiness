@@ -28,3 +28,14 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Smooth scroll to Products when clicking "Shop Now"
+document.getElementById('shopBtn').addEventListener('click', () => {
+  document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Fake contact form handler
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Message sent successfully! (This is just a demo)');
+});

@@ -29,6 +29,7 @@ header {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
 }
 
 header h1 {
@@ -113,40 +114,6 @@ section h3 {
   font-size: 2rem;
 }
 
-/* === Scroll To Top Button === */
-#scrollTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 12px 15px;
-  cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  display: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#scrollTop:hover {
-  transform: scale(1.15);
-  background: #0056b3;
-}
-
-/* === Keyframes === */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 /* === Products Section === */
 .product-grid {
   display: grid;
@@ -230,4 +197,39 @@ footer {
   padding: 20px 0;
   font-size: 0.9rem;
   margin-top: 50px;
+}
+
+/* === Scroll To Top Button === */
+#scrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#scrollTop:hover {
+  transform: scale(1.15);
+  background: #0056b3;
+}
+
+/* === Keyframes === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
