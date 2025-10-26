@@ -144,3 +144,6 @@ section.visible {
 .hero button:hover {
   transform: scale(1.08);
 }
+body {
+  min-height: 150vh;
+}
