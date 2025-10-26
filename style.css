@@ -1,4 +1,4 @@
-/* General */
+/* ===== GENERAL ===== */
 * {
   margin: 0;
   padding: 0;
@@ -8,18 +8,33 @@
 }
 
 body {
-  background-color: #f8f9fb;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Header */
+:root {
+  --bg: #f8f9fb;
+  --text: #333;
+  --accent: #0078ff;
+  --card: white;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --accent: #38bdf8;
+  --card: #1e293b;
+}
+
+/* ===== HEADER ===== */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 10%;
-  background: white;
+  background: var(--card);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -29,7 +44,7 @@ header {
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  color: #0078ff;
+  color: var(--accent);
 }
 
 nav ul {
@@ -40,16 +55,32 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text);
   font-weight: 500;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #0078ff;
+  color: var(--accent);
 }
 
-/* Hero Section */
+.theme-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background: #005fcc;
+}
+
+/* ===== HERO ===== */
 .hero {
   height: 100vh;
   background: linear-gradient(to right, #0078ff, #00bfff);
@@ -92,7 +123,7 @@ nav a:hover {
   color: #333;
 }
 
-/* Products Section */
+/* ===== PRODUCTS ===== */
 #products {
   padding: 80px 10%;
   text-align: center;
@@ -106,16 +137,24 @@ nav a:hover {
 }
 
 .product-card {
-  background: white;
+  background: var(--card);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.4s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 .product-card img {
@@ -127,7 +166,7 @@ nav a:hover {
 .product-card button {
   padding: 8px 15px;
   border: none;
-  background: #0078ff;
+  background: var(--accent);
   color: white;
   border-radius: 20px;
   cursor: pointer;
@@ -138,13 +177,13 @@ nav a:hover {
   background: #005fcc;
 }
 
-/* About + Contact */
+/* ===== ABOUT + CONTACT ===== */
 #about, #contact {
   padding: 80px 10%;
   text-align: center;
 }
 
-/* Fade Animations */
+/* ===== FADE SECTIONS ===== */
 .fade-section {
   opacity: 0;
   transform: translateY(50px);
@@ -156,9 +195,9 @@ nav a:hover {
   transform: translateY(0);
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
-  background: #0078ff;
+  background: var(--accent);
   color: white;
   padding: 30px 10%;
   text-align: center;
