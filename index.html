@@ -3,50 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azad Business</title>
+  <title>Azad Business | Dropshipping Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header>
-    <div class="logo">Azad Business</div>
+    <h1>Azad Business</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Grow Your Dropshipping Business with Confidence</h1>
-    <p>Quality products, trusted suppliers, and smooth customer experience — all in one place.</p>
+  <section class="hero" id="home">
+    <h2>Welcome to Azad Business</h2>
+    <p>Your trusted dropshipping partner — quality products, global reach.</p>
     <button>Shop Now</button>
   </section>
 
-  <section class="products">
-    <h2>Featured Products</h2>
+  <section id="about">
+    <h3>About Us</h3>
+    <p>Azad Business is an emerging dropshipping brand that connects suppliers and customers around the world. We focus on delivering high-quality products directly to your doorstep, saving time and cost without compromising quality.</p>
+    <p>We believe in simplicity, reliability, and transparency in every transaction.</p>
+  </section>
+
+  <section id="products">
+    <h3>Our Featured Products</h3>
     <div class="product-grid">
-      <div class="product">
-        <img src="https://via.placeholder.com/200" alt="Product 1">
-        <h3>Smart Watch</h3>
-        <p>$49.99</p>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1606813902748-5e6e1a45e6ef" alt="Smart Watch" />
+        <h4>Smart Watch</h4>
+        <p>Modern, stylish, and multifunctional — perfect for fitness lovers.</p>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/200" alt="Product 2">
-        <h3>Wireless Earbuds</h3>
-        <p>$39.99</p>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1585386959984-a415522316dc" alt="Wireless Headphones" />
+        <h4>Wireless Headphones</h4>
+        <p>Noise-cancelling comfort with crystal-clear sound quality.</p>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/200" alt="Product 3">
-        <h3>LED Desk Lamp</h3>
-        <p>$24.99</p>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512499617640-c2f999098c1f" alt="LED Lamp" />
+        <h4>LED Desk Lamp</h4>
+        <p>Energy-efficient and elegant — for your study or workspace.</p>
       </div>
     </div>
   </section>
 
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>Have a question or want to partner with us? Reach out!</p>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
   <footer>
-    <p>© 2025 Azad Business | All rights reserved.</p>
+    <p>© 2025 Azad Business. All Rights Reserved.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
