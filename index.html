@@ -7,90 +7,55 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
-    <div class="logo">Azad Business</div>
+    <h1>Azad Business</h1>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="themeToggle" class="theme-btn">🌙</button>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Welcome to <span>Azad Business</span></h1>
-      <p>Your trusted online store for quality and affordability.</p>
-      <button id="shopBtn">Shop Now</button>
-    </div>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <h2>Empowering Your Online Store</h2>
+    <p>At Azad Business, we help you grow your dropshipping journey with trusted suppliers and smooth automation.</p>
+    <button onclick="scrollToProducts()">Shop Now</button>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="fade-section">
-    <h2>Our Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1585386959984-a4155223164c" alt="Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <p>Noise-canceling Bluetooth 5.2</p>
-        <span class="price">$39.99</span>
-        <a href="#" class="buy-btn">Buy Now</a>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" alt="Smart Watch">
-        <h3>Smart Watch Pro</h3>
-        <p>Track your health and notifications</p>
-        <span class="price">$69.99</span>
-        <a href="#" class="buy-btn">Buy Now</a>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1585238341986-2d6d2a1e9408" alt="Backpack">
-        <h3>Urban Backpack</h3>
-        <p>Durable, waterproof & stylish</p>
-        <span class="price">$29.99</span>
-        <a href="#" class="buy-btn">Buy Now</a>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1612810806563-8422f881f5d4" alt="Sunglasses">
-        <h3>Polarized Sunglasses</h3>
-        <p>UV 400 protection for men & women</p>
-        <span class="price">$24.99</span>
-        <a href="#" class="buy-btn">Buy Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="fade-section">
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about">
     <h2>About Us</h2>
-    <p>At Azad Business, we connect top suppliers with customers seeking reliable, affordable, and quality products worldwide. We believe in trust, speed, and customer satisfaction.</p>
+    <p>Azad Business is a growing e-commerce hub focusing on quality products, reliable service, and customer satisfaction. 
+    We aim to bring modern solutions to your dropshipping store, with automation tools and virtual assistants that simplify everything.</p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <form action="https://formspree.io/f/mdkpkenn" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <!-- ===== PRODUCTS SECTION ===== -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <p>Explore a range of trending, high-quality, and affordable products imported directly from trusted AliExpress suppliers.</p>
   </section>
 
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or want to collaborate? Send us a message below!</p>
+
+    <form action="https://formspree.io/f/mdkpkenn" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Azad Business | All Rights Reserved</p>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">Facebook</a>
-    </div>
+    <p>© 2025 Azad Business | All Rights Reserved.</p>
   </footer>
 
   <script src="script.js"></script>
