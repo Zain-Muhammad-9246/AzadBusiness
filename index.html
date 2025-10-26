@@ -3,67 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azad Business | Dropshipping Store</title>
+  <title>Azad Business</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+  <!-- Navigation -->
   <header>
-    <h1>Azad Business</h1>
+    <div class="logo">Azad Business</div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <h2>Welcome to Azad Business</h2>
-    <p>Your trusted dropshipping partner — quality products, global reach.</p>
-    <button id="shopBtn">Shop Now</button>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>Azad Business</span></h1>
+      <p>Discover premium quality products that fit your lifestyle.</p>
+      <button id="shopBtn">Shop Now</button>
+    </div>
   </section>
 
-  <section id="about">
-    <h3>About Us</h3>
-    <p>Azad Business is an emerging dropshipping brand that connects suppliers and customers around the world. We focus on delivering high-quality products directly to your doorstep, saving time and cost without compromising quality.</p>
-    <p>We believe in simplicity, reliability, and transparency in every transaction.</p>
-  </section>
-
-  <section id="products">
-    <h3>Our Featured Products</h3>
+  <!-- Products Section -->
+  <section id="products" class="fade-section">
+    <h2>Our Products</h2>
     <div class="product-grid">
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1606813902748-5e6e1a45e6ef" alt="Smart Watch" />
-        <h4>Smart Watch</h4>
-        <p>Modern, stylish, and multifunctional — perfect for fitness lovers.</p>
+        <img src="https://via.placeholder.com/200" alt="Product 1">
+        <h3>Wireless Earbuds</h3>
+        <p>High-quality sound, noise cancellation.</p>
+        <button>Buy Now</button>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1585386959984-a415522316dc" alt="Wireless Headphones" />
-        <h4>Wireless Headphones</h4>
-        <p>Noise-cancelling comfort with crystal-clear sound quality.</p>
+        <img src="https://via.placeholder.com/200" alt="Product 2">
+        <h3>Smart Watch</h3>
+        <p>Track your fitness and stay connected.</p>
+        <button>Buy Now</button>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1512499617640-c2f999098c1f" alt="LED Lamp" />
-        <h4>LED Desk Lamp</h4>
-        <p>Energy-efficient and elegant — for your study or workspace.</p>
+        <img src="https://via.placeholder.com/200" alt="Product 3">
+        <h3>Stylish Backpack</h3>
+        <p>Perfect for work, travel, and daily use.</p>
+        <button>Buy Now</button>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h3>Contact Us</h3>
-    <p>Have a question or want to partner with us? Reach out!</p>
-    <form id="contactForm">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- About Section -->
+  <section id="about" class="fade-section">
+    <h2>About Us</h2>
+    <p>Azad Business is dedicated to delivering top-quality products to our customers worldwide. 
+       Our goal is to bring you value, innovation, and trust in every purchase you make.</p>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="fade-section">
+    <h2>Contact Us</h2>
+    <p>Have questions or want to partner with us?</p>
+    <p>Email: <a href="mailto:info@azadbusiness.com">info@azadbusiness.com</a></p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Azad Business. All Rights Reserved.</p>
+    <p>© 2025 Azad Business | All Rights Reserved</p>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">Facebook</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
