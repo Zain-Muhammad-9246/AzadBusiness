@@ -1,5 +1,12 @@
-// Fade-in sections
-const sections = document.querySelectorAll('.fade-section, .product-card');
+// ===== DARK MODE TOGGLE =====
+const themeBtn = document.querySelector('.theme-btn');
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+// ===== FADE-IN ANIMATION ON SCROLL =====
+const fadeSections = document.querySelectorAll('.fade-section, .product-card');
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -8,27 +15,43 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.2 });
 
-sections.forEach(section => observer.observe(section));
+fadeSections.forEach(section => observer.observe(section));
 
-// Smooth scroll for "Shop Now" button
-document.getElementById('shopBtn').addEventListener('click', () => {
-  document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Dark/Light mode toggle
-const themeToggle = document.getElementById('themeToggle');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme === 'dark') {
-  document.body.classList.add('dark');
-  themeToggle.textContent = '☀️';
+// ===== SMOOTH SCROLL FROM "SHOP NOW" BUTTON =====
+const shopNowBtn = document.querySelector('.hero button');
+if (shopNowBtn) {
+  shopNowBtn.addEventListener('click', () => {
+    document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+  });
 }
 
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const isDark = document.body.classList.contains('dark');
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
+// ===== CONTACT FORM HANDLER =====
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-console.log("Azad Business - Phase 3 (Dark mode + animations) loaded!");
+    const formData = new FormData(contactForm);
+    const formObject = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formspree.io/f/mdkpkenn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formObject)
+      });
+
+      if (response.ok) {
+        alert("✅ Message sent successfully! We'll reply soon.");
+        contactForm.reset();
+      } else {
+        alert("⚠️ Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("⚠️ Network error. Check your connection and try again.");
+    }
+  });
+}
+
+console.log("Azad Business website loaded successfully!");
