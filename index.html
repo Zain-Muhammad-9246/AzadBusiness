@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
+
+  <!-- HEADER -->
   <header>
     <h1>Azad Business</h1>
     <nav>
@@ -18,42 +19,61 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button class="theme-btn">🌙</button>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <h2>Empowering Your Online Store</h2>
-    <p>At Azad Business, we help you grow your dropshipping journey with trusted suppliers and smooth automation.</p>
+    <p>Azad Business brings you quality dropshipping products and smooth automation for your e-commerce store.</p>
     <button onclick="scrollToProducts()">Shop Now</button>
   </section>
 
-  <!-- ===== ABOUT SECTION ===== -->
-  <section id="about">
+  <!-- ABOUT -->
+  <section id="about" class="fade-section">
     <h2>About Us</h2>
-    <p>Azad Business is a growing e-commerce hub focusing on quality products, reliable service, and customer satisfaction. 
-    We aim to bring modern solutions to your dropshipping store, with automation tools and virtual assistants that simplify everything.</p>
+    <p>We aim to simplify dropshipping by providing high-quality products, reliable service, and automation tools. 
+    Our goal is to make your online store successful and stress-free.</p>
   </section>
 
-  <!-- ===== PRODUCTS SECTION ===== -->
-  <section id="products">
+  <!-- PRODUCTS -->
+  <section id="products" class="fade-section">
     <h2>Our Products</h2>
-    <p>Explore a range of trending, high-quality, and affordable products imported directly from trusted AliExpress suppliers.</p>
+    <div class="product-grid">
+      <div class="product-card fade-section">
+        <img src="https://via.placeholder.com/250" alt="Product 1">
+        <h3>Product 1</h3>
+        <span class="price">$19.99</span>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </div>
+      <div class="product-card fade-section">
+        <img src="https://via.placeholder.com/250" alt="Product 2">
+        <h3>Product 2</h3>
+        <span class="price">$24.99</span>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </div>
+      <div class="product-card fade-section">
+        <img src="https://via.placeholder.com/250" alt="Product 3">
+        <h3>Product 3</h3>
+        <span class="price">$29.99</span>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== CONTACT SECTION ===== -->
-  <section id="contact" class="contact">
+  <!-- CONTACT -->
+  <section id="contact" class="contact fade-section">
     <h2>Contact Us</h2>
     <p>Have questions or want to collaborate? Send us a message below!</p>
-
-    <form action="https://formspree.io/f/mdkpkenn" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="_replyto" placeholder="Your Email" required />
+    <form class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Azad Business | All Rights Reserved.</p>
   </footer>
