@@ -111,3 +111,36 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+/* === ANIMATIONS === */
+
+/* Fade in for sections */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* When visible */
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect for product cards */
+.product {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Button hover pulse */
+.hero button {
+  transition: transform 0.2s ease;
+}
+
+.hero button:hover {
+  transform: scale(1.08);
+}
