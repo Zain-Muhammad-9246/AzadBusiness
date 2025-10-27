@@ -669,6 +669,31 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* SIMPLE CONTACT STYLES */
+    .simple-contact {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 <body>
@@ -843,6 +868,15 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-details">
+              <h3>WhatsApp</h3>
+              <p>+92 355 5382221</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
               <i class="fas fa-clock"></i>
             </div>
             <div class="contact-details">
@@ -859,39 +893,35 @@
               <p>Worldwide</p>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-comments"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Free Consultation</h3>
-              <p>30-minute strategy session</p>
-            </div>
+        </div>
+        
+        <!-- SIMPLE CONTACT OPTIONS -->
+        <div class="simple-contact">
+          <h3 style="color: var(--accent); margin-bottom: 20px;">Ready to Get Started?</h3>
+          <p style="margin-bottom: 30px; font-size: 1.1rem;">Choose your preferred way to contact us:</p>
+          
+          <!-- Email Button -->
+          <a href="mailto:info.azadshoponline@gmail.com?subject=AZAD%20BUSINESS%20Service%20Inquiry&body=Hi%20AZAD%20BUSINESS%20team,%0D%0A%0D%0AI'm%20interested%20in%20your%20dropshipping%20services.%0D%0A%0D%0AMy%20requirements:%0D%0A%0D%0A-%20Preferred%20package:%20[Starter/Growth/Enterprise]%0D%0A-%20My%20budget:%20[Your%20budget]%0D%0A-%20Timeline:%20[When%20you%20want%20to%20start]%0D%0A%0D%0AThanks!" 
+             class="service-btn" 
+             style="display: inline-block; margin: 10px; padding: 15px 40px; font-size: 1.1rem;">
+            <i class="fas fa-envelope"></i> Email Us Directly
+          </a>
+          
+          <br>
+          
+          <!-- WhatsApp Button -->
+          <a href="https://wa.me/923555382221?text=Hi%20AZAD%20BUSINESS!%20I'm%20interested%20in%20your%20dropshipping%20services.%20Can%20you%20please%20provide%20more%20information?" 
+             class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
+          </a>
+          
+          <div style="margin-top: 30px; padding: 20px; background: var(--bg); border-radius: 10px;">
+            <h4 style="margin-bottom: 15px; color: var(--accent);">Why Choose AZAD BUSINESS?</h4>
+            <p style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Free 30-minute consultation</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> 24-hour response time</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Money-back guarantee</p>
           </div>
         </div>
-        <form class="contact-form" action="https://formspree.io/f/mdkpkenn" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <select name="service" required>
-              <option value="">Select Service</option>
-              <option value="starter">Starter Package - $299</option>
-              <option value="growth">Growth Package - $599</option>
-              <option value="enterprise">Enterprise Package - $999</option>
-              <option value="custom">Custom Solution</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea name="message" rows="5" placeholder="Tell us about your business goals..." required></textarea>
-          </div>
-          <button type="submit">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
       </div>
     </div>
   </section>
@@ -923,17 +953,18 @@
         <div class="footer-column">
           <h3>Services</h3>
           <ul class="footer-links">
-            <li><a href="#">Store Setup</a></li>
-            <li><a href="#">Product Research</a></li>
-            <li><a href="#">Marketing Strategy</a></li>
-            <li><a href="#">Facebook Ads</a></li>
-            <li><a href="#">Ongoing Support</a></li>
+            <li><a href="#services">Store Setup</a></li>
+            <li><a href="#services">Product Research</a></li>
+            <li><a href="#services">Marketing Strategy</a></li>
+            <li><a href="#services">Facebook Ads</a></li>
+            <li><a href="#services">Ongoing Support</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h3>Contact Info</h3>
           <ul class="footer-links">
             <li><i class="fas fa-envelope"></i> info.azadshoponline@gmail.com</li>
+            <li><i class="fab fa-whatsapp"></i> +92 355 5382221</li>
             <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
             <li><i class="fas fa-globe"></i> Worldwide Service</li>
           </ul>
@@ -994,17 +1025,6 @@
           behavior: 'smooth'
         });
       });
-    });
-
-    // Form submission feedback
-    const contactForm = document.querySelector('.contact-form');
-    contactForm.addEventListener('submit', function(e) {
-      // This is where you would normally handle form submission
-      // For now, we'll just show an alert
-      setTimeout(() => {
-        alert('Thank you for your message! We will contact you within 24 hours.');
-        contactForm.reset();
-      }, 1000);
     });
   </script>
 </body>
