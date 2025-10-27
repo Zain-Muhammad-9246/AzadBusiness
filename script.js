@@ -1,3 +1,11 @@
+// Loading animation
+window.addEventListener('load', function() {
+  const loading = document.getElementById('loading');
+  setTimeout(() => {
+    loading.classList.add('hidden');
+  }, 1000);
+});
+
 // THEME TOGGLE
 const themeBtn = document.querySelector(".theme-btn");
 themeBtn.addEventListener("click", () => {
@@ -47,3 +55,9 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
   });
 });
+
+// Google Analytics (Optional - add your tracking ID)
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX'); // Replace with your tracking ID
