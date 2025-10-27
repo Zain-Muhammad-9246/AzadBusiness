@@ -221,14 +221,32 @@ nav a:hover {
   z-index: 1;
 }
 
+/* Hero Heading - Force One Line */
 .hero h2 {
-  font-size: 3.5rem;
+  font-size: 3.2rem; /* Slightly smaller to fit */
   margin-bottom: 1.5rem;
   color: white;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
-.hero h2::after {
-  display: none;
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+    white-space: normal;
+    text-align: center;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
 }
 
 .hero p {
