@@ -79,9 +79,10 @@ nav a:hover {
 }
 
 /* HERO */
+/* HERO */
 .hero {
   height: 100vh;
-  background: linear-gradient(to bottom right, #0078ff, #00bfff);
+  background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,18 +90,24 @@ nav a:hover {
   text-align: center;
   color: white;
   padding: 0 2rem;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  position: relative;
 }
 
-.hero h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* Dark overlay for readability */
+  z-index: 0;
 }
 
-.hero p {
-  max-width: 600px;
-  margin-bottom: 2rem;
+.hero h2,
+.hero p,
+.hero button {
+  position: relative;
+  z-index: 1; /* Keep text/buttons above overlay */
 }
 
 .hero button {
