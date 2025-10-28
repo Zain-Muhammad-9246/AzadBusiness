@@ -61,3 +61,41 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-XXXXXXXXXX'); // Replace with your tracking ID
+// Mobile & Tablet Scroll-to-Hide Header
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
+
+function handleScroll() {
+    // Only apply on mobile/tablet (screen width <= 1024px)
+    if (window.innerWidth <= 1024) {
+        const currentScrollY = window.scrollY;
+        
+        // Show header when scrolling up, hide when scrolling down
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling DOWN - hide header
+            header.classList.add('hidden');
+        } else {
+            // Scrolling UP - show header
+            header.classList.remove('hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+        
+        // Always show header when at top of page
+        if (window.scrollY === 0) {
+            header.classList.remove('hidden');
+        }
+    } else {
+        // On desktop, ensure header is always visible
+        header.classList.remove('hidden');
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
+
+// Also handle window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) {
+        header.classList.remove('hidden');
+    }
+});
