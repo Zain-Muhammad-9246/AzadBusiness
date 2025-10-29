@@ -1,0 +1,280 @@
+// chatbot.js - Complete AI Chatbot for Azad Business Hub
+
+// Chatbot Styles
+const chatbotStyles = `
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-button {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0078ff 0%, #00bfff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 120, 255, 0.3);
+    border: none;
+    transition: transform 0.3s;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+}
+
+.chatbot-header {
+    background: linear-gradient(135deg, #0078ff 0%, #00bfff 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background: white;
+    border: 1px solid #e0e0e0;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: #0078ff;
+    color: white;
+    margin-left: auto;
+}
+
+.chatbot-input {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    outline: none;
+}
+
+.chatbot-input button {
+    background: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.quick-questions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quick-question {
+    background: white;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.quick-question:hover {
+    background: #f0f0f0;
+}
+`;
+
+// Chatbot HTML
+const chatbotHTML = `
+<div class="chatbot-container">
+    <button class="chatbot-button" onclick="window.toggleChat()">
+        <i class="fas fa-robot"></i>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div>
+                <strong>Azad AI Assistant</strong>
+                <div style="font-size: 12px; opacity: 0.9;">Online • 24/7 Support</div>
+            </div>
+            <button onclick="window.toggleChat()" style="background: none; border: none; color: white; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                <strong>Azad AI:</strong> Hello! I'm your AI assistant. How can I help you with dropshipping services today?
+                
+                <div class="quick-questions">
+                    <div class="quick-question" onclick="window.askQuestion('What services do you offer?')">
+                        🤔 What services do you offer?
+                    </div>
+                    <div class="quick-question" onclick="window.askQuestion('How much does it cost?')">
+                        💰 How much does it cost?
+                    </div>
+                    <div class="quick-question" onclick="window.askQuestion('How long does setup take?')">
+                        ⏱️ How long does setup take?
+                    </div>
+                    <div class="quick-question" onclick="window.askQuestion('Do you offer support?')">
+                        🛟 Do you offer support?
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="window.handleKeyPress(event)">
+            <button onclick="window.sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+`;
+
+// Chatbot functionality
+window.toggleChat = function() {
+    const chatWindow = document.getElementById('chatbotWindow');
+    chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+}
+
+window.handleKeyPress = function(event) {
+    if (event.key === 'Enter') {
+        window.sendMessage();
+    }
+}
+
+window.askQuestion = function(question) {
+    document.getElementById('userInput').value = question;
+    window.sendMessage();
+}
+
+window.sendMessage = function() {
+    const userInput = document.getElementById('userInput');
+    const message = userInput.value.trim();
+    
+    if (message === '') return;
+
+    // Add user message
+    window.addMessage(message, 'user');
+    userInput.value = '';
+
+    // Generate bot response
+    setTimeout(() => {
+        const botResponse = window.generateResponse(message);
+        window.addMessage(botResponse, 'bot');
+    }, 1000);
+}
+
+window.addMessage = function(text, sender) {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    if (sender === 'bot') {
+        messageDiv.innerHTML = `<strong>Azad AI:</strong> ${text}`;
+    } else {
+        messageDiv.textContent = text;
+    }
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+window.generateResponse = function(userMessage) {
+    const lowerMessage = userMessage.toLowerCase();
+    
+    // Service-related questions
+    if (lowerMessage.includes('service') || lowerMessage.includes('offer') || lowerMessage.includes('provide')) {
+        return "We offer complete dropshipping solutions: 🛍️ Store Setup, 🔍 Product Research, 📈 Marketing Strategy, and 🛟 Ongoing Support. We have 3 packages: Starter ($199), Growth ($599), and Enterprise ($999).";
+    }
+    
+    // Pricing questions
+    if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('how much')) {
+        return "Our packages start at $199:\n\n🚀 Starter: $199 (Basic setup + 20 products)\n📈 Growth: $599 (Most popular - Premium setup + 50 products)\n🏢 Enterprise: $999 (Complete solution + 100+ products)\n\nAll packages include support!";
+    }
+    
+    // Time questions
+    if (lowerMessage.includes('time') || lowerMessage.includes('long') || lowerMessage.includes('how long')) {
+        return "Store setup typically takes 24-48 hours after we receive your requirements. Marketing campaigns can be live within 3-5 days. We provide quick turnaround because we understand time is money! 💰";
+    }
+    
+    // Support questions
+    if (lowerMessage.includes('support') || lowerMessage.includes('help') || lowerMessage.includes('contact')) {
+        return "Yes! We provide dedicated support: 📞 1-6 months depending on package, 📧 Email support within 24 hours, 📱 WhatsApp instant messaging, 🎥 Video call consultations when needed.";
+    }
+    
+    // Login/access questions
+    if (lowerMessage.includes('login') || lowerMessage.includes('access') || lowerMessage.includes('dashboard')) {
+        return "To access your dashboard:\n1. Use demo@azadbusiness.com / demo123 for demo\n2. New clients get login after purchase\n3. Forgot password? Contact us at +92 355 5382221\n4. Technical issues? We'll fix them within hours!";
+    }
+    
+    // General help
+    if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        return "Hello! I'm Azad AI Assistant. I can help you with: service information, pricing, setup process, login assistance, and support. What would you like to know?";
+    }
+    
+    // Default response
+    return "I understand you're asking about: '" + userMessage + "'. For detailed information about our dropshipping services or login assistance, I recommend:\n\n📞 Contacting us directly at +92 355 5382221\n📧 Emailing info.azadshoponline@gmail.com\n\nWould you like to know about our specific services or need login help?";
+}
+
+// Initialize chatbot when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Add styles
+    const styleElement = document.createElement('style');
+    styleElement.textContent = chatbotStyles;
+    document.head.appendChild(styleElement);
+    
+    // Add chatbot HTML
+    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+    
+    // Auto-open chat after 30 seconds
+    setTimeout(() => {
+        if (!localStorage.getItem('chatOpened')) {
+            window.toggleChat();
+            localStorage.setItem('chatOpened', 'true');
+        }
+    }, 30000);
+});

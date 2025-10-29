@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Allow: /services.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /process.html
+
+Disallow: /home.html
+Disallow: /index.html
 
 Sitemap: https://azadbusinesshub.github.io/sitemap.xml
