@@ -1,6 +1,6 @@
-// chatbot.js - Complete AI Chatbot for Azad Business Hub
+// chatbot.js - Complete AI Chatbot for Azad Business Hub (Always Light Theme)
 
-// Chatbot Styles
+// Chatbot Styles - Always Light Theme
 const chatbotStyles = `
 .chatbot-container {
     position: fixed;
@@ -72,6 +72,7 @@ const chatbotStyles = `
     background: white;
     border: 1px solid #e0e0e0;
     align-self: flex-start;
+    color: #333;
 }
 
 .user-message {
@@ -85,6 +86,7 @@ const chatbotStyles = `
     border-top: 1px solid #e0e0e0;
     display: flex;
     gap: 10px;
+    background: white;
 }
 
 .chatbot-input input {
@@ -93,6 +95,13 @@ const chatbotStyles = `
     border: 1px solid #e0e0e0;
     border-radius: 25px;
     outline: none;
+    background: white;
+    color: #333;
+}
+
+.chatbot-input input::placeholder {
+    color: #666;
+    opacity: 0.7;
 }
 
 .chatbot-input button {
@@ -103,6 +112,11 @@ const chatbotStyles = `
     width: 40px;
     height: 40px;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chatbot-input button:hover {
+    background: #005fcc;
 }
 
 .quick-questions {
@@ -121,10 +135,29 @@ const chatbotStyles = `
     cursor: pointer;
     text-align: left;
     transition: background 0.3s;
+    color: #333;
 }
 
 .quick-question:hover {
     background: #f0f0f0;
+}
+
+/* Scrollbar styling for chatbot */
+.chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: #0078ff;
+    border-radius: 3px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: #005fcc;
 }
 `;
 
@@ -174,7 +207,7 @@ const chatbotHTML = `
 </div>
 `;
 
-// Chatbot functionality
+// Chatbot functionality (same as before)
 window.toggleChat = function() {
     const chatWindow = document.getElementById('chatbotWindow');
     chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
@@ -246,18 +279,13 @@ window.generateResponse = function(userMessage) {
         return "Yes! We provide dedicated support: 📞 1-6 months depending on package, 📧 Email support within 24 hours, 📱 WhatsApp instant messaging, 🎥 Video call consultations when needed.";
     }
     
-    // Login/access questions
-    if (lowerMessage.includes('login') || lowerMessage.includes('access') || lowerMessage.includes('dashboard')) {
-        return "To access your dashboard:\n1. Use demo@azadbusiness.com / demo123 for demo\n2. New clients get login after purchase\n3. Forgot password? Contact us at +92 355 5382221\n4. Technical issues? We'll fix them within hours!";
-    }
-    
     // General help
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-        return "Hello! I'm Azad AI Assistant. I can help you with: service information, pricing, setup process, login assistance, and support. What would you like to know?";
+        return "Hello! I'm Azad AI Assistant. I can help you with: service information, pricing, setup process, and support. What would you like to know?";
     }
     
     // Default response
-    return "I understand you're asking about: '" + userMessage + "'. For detailed information about our dropshipping services or login assistance, I recommend:\n\n📞 Contacting us directly at +92 355 5382221\n📧 Emailing info.azadshoponline@gmail.com\n\nWould you like to know about our specific services or need login help?";
+    return "I understand you're asking about: '" + userMessage + "'. For detailed information about our dropshipping services, I recommend:\n\n📞 Contacting us directly at +92 355 5382221\n📧 Emailing info.azadshoponline@gmail.com\n\nWould you like to know about our specific services?";
 }
 
 // Initialize chatbot when page loads

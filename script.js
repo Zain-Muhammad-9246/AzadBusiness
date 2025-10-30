@@ -16,64 +16,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// === LOGIN FUNCTIONALITY ===
-document.getElementById('loginForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  
-  // Simple demo authentication
-  if ((email === 'demo@azadbusiness.com' && password === 'demo123') || email) {
-    localStorage.setItem('loggedIn', 'true');
-    localStorage.setItem('userEmail', email);
-    window.location.href = 'home.html';
-  } else {
-    alert('Invalid credentials. Use demo@azadbusiness.com / demo123 for demo access.');
-  }
-});
-
-// === AUTH CHECK ===
-function checkAuth() {
-  // Don't check auth on login page
-  if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-    return;
-  }
-  
-  if (!localStorage.getItem('loggedIn')) {
-    window.location.href = 'index.html';
-    return;
-  }
-}
-
-// === LOGOUT FUNCTION ===
-function logout() {
-  localStorage.removeItem('loggedIn');
-  localStorage.removeItem('userEmail');
-  window.location.href = 'index.html';
-}
-
-// === INITIALIZE ===
-document.addEventListener('DOMContentLoaded', function() {
-  checkAuth();
-  
-  // Update welcome message
-  const userWelcome = document.querySelector('.user-welcome');
-  if (userWelcome) {
-    const userEmail = localStorage.getItem('userEmail') || 'Client';
-    userWelcome.textContent = `Welcome, ${userEmail.split('@')[0]}!`;
-  }
-  
-  // Set active nav link
-  const currentPage = window.location.pathname.split('/').pop() || 'home.html';
-  const navLinks = document.querySelectorAll('nav a');
-  navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
-  });
-});
-
 // === SCROLL FUNCTIONS ===
 function scrollToServices() {
   document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
@@ -105,6 +47,17 @@ document.querySelectorAll('nav a').forEach(anchor => {
       document.querySelector(href).scrollIntoView({
         behavior: 'smooth'
       });
+    }
+  });
+});
+
+// === SET ACTIVE NAV LINK ===
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
     }
   });
 });
